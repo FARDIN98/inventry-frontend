@@ -41,6 +41,14 @@ class ApiClient {
   async get<T>(endpoint: string): Promise<T> {
     return this.request<T>(endpoint, { method: 'GET' });
   }
+
+  async patch<T>(endpoint: string, body?: Record<string, unknown>): Promise<T> {
+    return this.request<T>(endpoint, { method: 'PATCH', body });
+  }
+
+  async delete<T>(endpoint: string): Promise<T> {
+    return this.request<T>(endpoint, { method: 'DELETE' });
+  }
 }
 
 export const apiClient = new ApiClient(API_BASE_URL);
