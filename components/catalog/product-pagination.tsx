@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import Link from "next/link";
 import {
   Pagination,
   PaginationContent,
@@ -148,7 +147,6 @@ export function ProductPagination({
                       page: String(page),
                     })}
                     isActive={page === currentPage}
-                    as={Link}
                   >
                     {page}
                   </PaginationLink>
