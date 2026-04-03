@@ -168,7 +168,7 @@ export function ProductTable({
                   {product.category_name}
                 </td>
                 <td className="px-4 py-3 text-sm text-right">
-                  ${product.price.toFixed(2)}
+                  ${Number(product.price).toFixed(2)}
                 </td>
                 <td className="px-4 py-3 text-sm text-right">
                   {product.stock_quantity}
