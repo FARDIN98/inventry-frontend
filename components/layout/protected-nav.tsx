@@ -1,0 +1,59 @@
+"use client";
+
+import { useAuth } from "@/lib/auth-context";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { LogOut, LayoutDashboard, Users } from "lucide-react";
+
+export function ProtectedNav(): React.JSX.Element {
+  const { user, loading, logout } = useAuth();
+
+  if (loading) {
+    return (
+      <header className="border-b bg-background">
+        <div className="container mx-auto flex h-14 items-center px-4">
+          <span className="font-semibold">Inventry</span>
+        </div>
+      </header>
+    );
+  }
+
+  return (
+    <header className="border-b bg-background">
+      <div className="container mx-auto flex h-14 items-center justify-between px-4">
+        <div className="flex items-center gap-6">
+          <Link href="/dashboard" className="font-semibold text-lg">
+            Inventry
+          </Link>
+          <nav className="flex items-center gap-4 text-sm">
+            <Link
+              href="/dashboard"
+              className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5"
+            >
+              <LayoutDashboard className="size-4" />
+              Dashboard
+            </Link>
+            {user?.role === "admin" && (
+              <Link
+                href="/admin/users"
+                className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5"
+              >
+                <Users className="size-4" />
+                Users
+              </Link>
+            )}
+          </nav>
+        </div>
+        <div className="flex items-center gap-3">
+          <span className="text-sm text-muted-foreground">
+            {user?.name} ({user?.role})
+          </span>
+          <Button variant="ghost" size="sm" onClick={logout}>
+            <LogOut className="size-4" />
+            Sign Out
+          </Button>
+        </div>
+      </div>
+    </header>
+  );
+}
