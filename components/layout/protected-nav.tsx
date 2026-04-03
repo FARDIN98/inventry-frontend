@@ -3,27 +3,29 @@
 import { useAuth } from "@/lib/auth-context";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { LogOut, LayoutDashboard, Users } from "lucide-react";
+import { LogOut, LayoutDashboard, Users, FolderOpen, Package } from "lucide-react";
 
 export function ProtectedNav(): React.JSX.Element {
   const { user, loading, logout } = useAuth();
 
   if (loading) {
     return (
-      <header className="border-b bg-background">
+      <header className="sticky top-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-sm">
         <div className="container mx-auto flex h-14 items-center px-4">
-          <span className="font-semibold">Inventry</span>
+          <span className="font-heading font-semibold text-lg">
+            <span className="text-gradient-primary">Inventry</span>
+          </span>
         </div>
       </header>
     );
   }
 
   return (
-    <header className="border-b bg-background">
+    <header className="sticky top-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-sm">
       <div className="container mx-auto flex h-14 items-center justify-between px-4">
         <div className="flex items-center gap-6">
-          <Link href="/dashboard" className="font-semibold text-lg">
-            Inventry
+          <Link href="/dashboard" className="font-heading font-semibold text-lg">
+            <span className="text-gradient-primary">Inventry</span>
           </Link>
           <nav className="flex items-center gap-4 text-sm">
             <Link
@@ -32,6 +34,20 @@ export function ProtectedNav(): React.JSX.Element {
             >
               <LayoutDashboard className="size-4" />
               Dashboard
+            </Link>
+            <Link
+              href="/categories"
+              className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5"
+            >
+              <FolderOpen className="size-4" />
+              Categories
+            </Link>
+            <Link
+              href="/products"
+              className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5"
+            >
+              <Package className="size-4" />
+              Products
             </Link>
             {user?.role === "admin" && (
               <Link
