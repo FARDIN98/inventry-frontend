@@ -3,7 +3,7 @@
 import { useAuth } from "@/lib/auth-context";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { LogOut, LayoutDashboard, Users, FolderOpen, Package, ShoppingCart } from "lucide-react";
+import { LogOut, LayoutDashboard, Users, FolderOpen, Package, ShoppingCart, TrendingDown } from "lucide-react";
 
 export function ProtectedNav(): React.JSX.Element {
   const { user, loading, logout } = useAuth();
@@ -55,6 +55,13 @@ export function ProtectedNav(): React.JSX.Element {
             >
               <ShoppingCart className="size-4" />
               Orders
+            </Link>
+            <Link
+              href="/restock"
+              className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5"
+            >
+              <TrendingDown className="size-4" />
+              Restock
             </Link>
             {user?.role === "admin" && (
               <Link
