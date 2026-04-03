@@ -14,8 +14,8 @@ export default function NewProductPage(): React.JSX.Element {
           <ArrowLeft className="size-4" />
           Back to Products
         </Link>
-        <h1 className="text-3xl font-bold font-heading tracking-tight">
-          <span className="text-gradient-primary">Add Product</span>
+        <h1 className="text-3xl font-semibold tracking-tight">
+          Add Product
         </h1>
         <p className="text-muted-foreground mt-1">
           Add a new product to your inventory

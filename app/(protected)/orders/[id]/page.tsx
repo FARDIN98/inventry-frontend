@@ -161,7 +161,7 @@ export default function OrderDetailPage(): React.JSX.Element {
       <div className="flex items-start justify-between">
         <div>
           <div className="flex items-center gap-3 mb-1">
-            <h1 className="text-2xl font-bold font-heading">
+            <h1 className="text-2xl font-bold">
               ORD-{order.id.slice(0, 8).toUpperCase()}
             </h1>
             <StatusBadge status={order.status} />
@@ -264,7 +264,7 @@ export default function OrderDetailPage(): React.JSX.Element {
         <CardContent className="pt-6">
           <div className="flex items-center justify-between">
             <span className="text-lg font-semibold">Order Total</span>
-            <span className="text-2xl font-bold font-heading">
+            <span className="text-2xl font-bold">
               ${Number(order.total_price).toFixed(2)}
             </span>
           </div>

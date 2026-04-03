@@ -63,8 +63,8 @@ export default function EditProductPage(): React.JSX.Element {
           <ArrowLeft className="size-4" />
           Back to Products
         </Link>
-        <h1 className="text-3xl font-bold font-heading tracking-tight">
-          <span className="text-gradient-primary">Edit Product</span>
+        <h1 className="text-3xl font-semibold tracking-tight">
+          Edit Product
         </h1>
         <p className="text-muted-foreground mt-1">Update product details</p>
       </div>

@@ -4,7 +4,7 @@ import { jwtVerify } from 'jose';
 const PUBLIC_PATHS = ['/auth', '/forbidden'];
 const ADMIN_PATHS = ['/admin'];
 
-export async function proxy(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Allow public paths

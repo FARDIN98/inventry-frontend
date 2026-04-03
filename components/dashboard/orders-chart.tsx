@@ -29,7 +29,7 @@ interface OrdersChartProps {
 
 export function OrdersChart({ data }: OrdersChartProps): React.JSX.Element {
   return (
-    <Card className="bg-gradient-surface ring-1 ring-foreground/10">
+    <Card>
       <CardHeader>
         <CardTitle className="text-sm font-medium text-muted-foreground">
           Orders This Month

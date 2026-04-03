@@ -10,7 +10,7 @@ interface StockSummaryProps {
 
 export function StockSummary({ items }: StockSummaryProps): React.JSX.Element {
   return (
-    <Card className="bg-gradient-surface ring-1 ring-foreground/10">
+    <Card>
       <CardHeader className="flex flex-row items-center justify-between pb-2">
         <CardTitle className="text-sm font-medium text-muted-foreground">
           At-Risk Products

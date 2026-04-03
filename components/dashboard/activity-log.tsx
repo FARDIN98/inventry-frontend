@@ -8,7 +8,7 @@ interface ActivityLogProps {
 
 export function ActivityLog({ entries }: ActivityLogProps): React.JSX.Element {
   return (
-    <Card className="bg-gradient-surface ring-1 ring-foreground/10">
+    <Card>
       <CardHeader className="pb-2">
         <CardTitle className="text-sm font-medium text-muted-foreground">
           Recent Activity

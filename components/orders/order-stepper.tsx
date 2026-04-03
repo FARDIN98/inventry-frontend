@@ -36,7 +36,7 @@ export function OrderStepper({ currentStatus }: OrderStepperProps): React.JSX.El
                   isCompleted && !isCancelled
                     ? "bg-success text-white"
                     : "",
-                  isActive ? "bg-gradient-primary text-white" : "",
+                  isActive ? "bg-primary text-primary-foreground" : "",
                   !isCompleted && !isActive
                     ? "bg-muted text-muted-foreground"
                     : "",

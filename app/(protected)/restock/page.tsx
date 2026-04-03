@@ -32,8 +32,8 @@ export default function RestockPage(): React.JSX.Element {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold font-heading tracking-tight">
-          <span className="text-gradient-primary">Restock Queue</span>
+        <h1 className="text-3xl font-semibold tracking-tight">
+          Restock Queue
         </h1>
         <p className="text-muted-foreground mt-1">
           Products below minimum stock threshold, ordered by priority.
@@ -64,7 +64,7 @@ export default function RestockPage(): React.JSX.Element {
         <Card className="flex flex-col items-center justify-center py-16 text-center">
           <CardContent>
             <TrendingDown className="size-12 text-muted-foreground/40 mx-auto mb-4" />
-            <h2 className="text-lg font-semibold font-heading">
+            <h2 className="text-lg font-semibold">
               All products are stocked
             </h2>
             <p className="text-sm text-muted-foreground mt-2 max-w-sm">

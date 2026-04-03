@@ -115,8 +115,8 @@ export default function NewOrderPage(): React.JSX.Element {
   return (
     <div className="space-y-6 max-w-3xl">
       <div>
-        <h1 className="text-3xl font-bold font-heading tracking-tight">
-          <span className="text-gradient-primary">Create Order</span>
+        <h1 className="text-3xl font-semibold tracking-tight">
+          Create Order
         </h1>
         <p className="text-muted-foreground mt-1">
           Add products and confirm order details
@@ -240,7 +240,7 @@ export default function NewOrderPage(): React.JSX.Element {
             <CardContent className="pt-6">
               <div className="flex items-center justify-between">
                 <span className="text-lg font-semibold">Order Total</span>
-                <span className="text-2xl font-bold font-heading">
+                <span className="text-2xl font-bold">
                   ${total.toFixed(2)}
                 </span>
               </div>
@@ -259,7 +259,7 @@ export default function NewOrderPage(): React.JSX.Element {
           <Button
             type="submit"
             disabled={isSubmitting || hasStockViolations}
-            className="bg-gradient-primary text-white shadow-gradient"
+            className=""
           >
             {isSubmitting ? "Placing Order..." : "Confirm Order"}
           </Button>

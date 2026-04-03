@@ -97,7 +97,7 @@ export default function RestockDialog({
             Cancel
           </Button>
           <Button
-            className="bg-gradient-primary text-white shadow-gradient"
+            className=""
             type="button"
             disabled={isSubmitting}
             onClick={() => void handleRestock()}

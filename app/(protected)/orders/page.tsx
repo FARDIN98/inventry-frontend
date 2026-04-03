@@ -16,8 +16,8 @@ export default async function OrdersPage({
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold font-heading tracking-tight">
-            <span className="text-gradient-primary">Orders</span>
+          <h1 className="text-3xl font-semibold tracking-tight">
+            Orders
           </h1>
           <p className="text-muted-foreground mt-1">
             Manage customer orders and track fulfillment
