@@ -87,12 +87,12 @@ export function LoginForm(): React.JSX.Element {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 pt-4">
+    <form onSubmit={handleSubmit} className="space-y-5 pt-4">
       {generalError && (
         <div className="text-sm text-destructive">{generalError}</div>
       )}
 
-      <div className="space-y-1">
+      <div className="space-y-2">
         <Label htmlFor="login-email">Email</Label>
         <Input
           id="login-email"
@@ -108,7 +108,7 @@ export function LoginForm(): React.JSX.Element {
         )}
       </div>
 
-      <div className="space-y-1">
+      <div className="space-y-2">
         <Label htmlFor="login-password">Password</Label>
         <Input
           id="login-password"
@@ -124,11 +124,11 @@ export function LoginForm(): React.JSX.Element {
         )}
       </div>
 
-      <Button type="submit" className="w-full" disabled={loading}>
+      <Button type="submit" size="lg" className="w-full mt-2" disabled={loading}>
         {loading ? "Signing in..." : "Sign In"}
       </Button>
 
-      <div className="relative my-4">
+      <div className="relative my-6">
         <div className="absolute inset-0 flex items-center">
           <span className="w-full border-t" />
         </div>
@@ -140,6 +140,7 @@ export function LoginForm(): React.JSX.Element {
       <Button
         type="button"
         variant="outline"
+        size="lg"
         className="w-full"
         onClick={handleDemoLogin}
         disabled={demoLoading}
