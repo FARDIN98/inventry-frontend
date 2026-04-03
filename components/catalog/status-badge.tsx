@@ -3,8 +3,9 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 import type { ProductStatus } from "@/lib/catalog-types";
 import type { OrderStatus } from "@/lib/order-types";
+import type { RestockPriority } from "@/lib/restock-types";
 
-type AllStatus = ProductStatus | OrderStatus;
+type AllStatus = ProductStatus | OrderStatus | RestockPriority;
 
 const statusBadgeVariants = cva(
   "inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-normal",
@@ -21,6 +22,10 @@ const statusBadgeVariants = cva(
         shipped: "bg-primary/20 text-primary",
         delivered: "bg-success/15 text-success",
         cancelled: "bg-destructive/15 text-destructive",
+        // Restock priority variants
+        priority_high: "bg-destructive/15 text-destructive",
+        priority_medium: "bg-warning/15 text-warning",
+        priority_low: "bg-muted/30 text-muted-foreground",
       },
     },
     defaultVariants: {
@@ -40,6 +45,10 @@ const statusLabels: Record<AllStatus, string> = {
   shipped: "Shipped",
   delivered: "Delivered",
   cancelled: "Cancelled",
+  // Restock priorities
+  priority_high: "High",
+  priority_medium: "Medium",
+  priority_low: "Low",
 };
 
 interface StatusBadgeProps extends VariantProps<typeof statusBadgeVariants> {
