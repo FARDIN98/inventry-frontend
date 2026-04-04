@@ -138,7 +138,7 @@ export default function OrderDetailPage(): React.JSX.Element {
 
   if (loading) {
     return (
-      <div className="animate-pulse space-y-4 max-w-3xl">
+      <div className="animate-pulse space-y-4">
         <div className="h-10 bg-muted rounded-lg w-1/3" />
         <div className="h-24 bg-muted rounded-xl" />
         <div className="h-48 bg-muted rounded-xl" />
@@ -156,7 +156,7 @@ export default function OrderDetailPage(): React.JSX.Element {
   }
 
   return (
-    <div className="space-y-6 max-w-3xl">
+    <div className="space-y-6">
       {/* Header */}
       <div className="flex items-start justify-between">
         <div>
