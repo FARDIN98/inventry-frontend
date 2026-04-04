@@ -38,6 +38,7 @@ export function ProductForm({ product, onSuccess }: ProductFormProps): React.JSX
   const [minStockThreshold, setMinStockThreshold] = useState<string>(
     product ? String(product.min_stock_threshold) : ""
   );
+  const [isActive, setIsActive] = useState<boolean>(product?.is_active ?? true);
   const [categories, setCategories] = useState<Category[]>([]);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [generalError, setGeneralError] = useState<string | null>(null);
@@ -94,6 +95,7 @@ export function ProductForm({ product, onSuccess }: ProductFormProps): React.JSX
         price: Number(price),
         stock_quantity: Number(stockQuantity),
         min_stock_threshold: Number(minStockThreshold),
+        is_active: isActive,
       };
 
       if (product) {
@@ -213,6 +215,35 @@ export function ProductForm({ product, onSuccess }: ProductFormProps): React.JSX
       </div>
 
       {generalError && <p className="text-sm text-destructive">{generalError}</p>}
+
+      {/* Active / Inactive toggle */}
+      <div className="flex items-center gap-3 p-3 border border-border rounded-lg">
+        <button
+          type="button"
+          role="switch"
+          aria-checked={isActive}
+          onClick={() => setIsActive((v) => !v)}
+          className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+            isActive ? 'bg-success' : 'bg-muted'
+          }`}
+        >
+          <span
+            className={`pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow-lg transition-transform ${
+              isActive ? 'translate-x-5' : 'translate-x-0'
+            }`}
+          />
+        </button>
+        <div>
+          <p className="text-sm font-medium">
+            {isActive ? 'Active' : 'Inactive'}
+          </p>
+          <p className="text-xs text-muted-foreground">
+            {isActive
+              ? 'Product is visible and can be ordered'
+              : 'Product is hidden from orders — "This product is currently unavailable."'}
+          </p>
+        </div>
+      </div>
 
       <div className="flex items-center gap-3">
         <Button type="submit" disabled={isSubmitting}>

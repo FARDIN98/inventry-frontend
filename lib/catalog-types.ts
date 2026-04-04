@@ -5,7 +5,7 @@ export interface Category {
   updated_at: string;
 }
 
-export type ProductStatus = 'active' | 'low_stock' | 'out_of_stock';
+export type ProductStatus = 'active' | 'low_stock' | 'out_of_stock' | 'inactive';
 
 export interface Product {
   id: string;
@@ -15,6 +15,7 @@ export interface Product {
   price: number;
   stock_quantity: number;
   min_stock_threshold: number;
+  is_active: boolean;
   status: ProductStatus;
   created_at: string;
   updated_at: string;

@@ -107,6 +107,7 @@ export function FilterBar(): React.JSX.Element {
           <SelectItem value="active">Active</SelectItem>
           <SelectItem value="low_stock">Low Stock</SelectItem>
           <SelectItem value="out_of_stock">Out of Stock</SelectItem>
+          <SelectItem value="inactive">Inactive</SelectItem>
         </SelectContent>
       </Select>
     </div>

@@ -91,39 +91,48 @@ export function ProductSelector({
             <CommandGroup>
               {products
                 .filter((p) => !excludeProductIds.includes(p.id))
-                .map((product) => (
-                  <CommandItem
-                    key={product.id}
-                    value={product.id}
-                    disabled={product.stock_quantity === 0}
-                    onSelect={() => {
-                      if (product.stock_quantity === 0) return;
-                      onSelect(product);
-                      setOpen(false);
-                      setSearchValue("");
-                    }}
-                    className={
-                      product.stock_quantity === 0
-                        ? "opacity-50 cursor-not-allowed"
-                        : "cursor-pointer"
-                    }
-                  >
-                    <div className="flex items-center justify-between w-full">
-                      <span className="font-medium">{product.name}</span>
-                      <span
-                        className={`text-xs ml-2 ${
-                          product.stock_quantity === 0
-                            ? "text-destructive"
-                            : "text-muted-foreground"
-                        }`}
-                      >
-                        {product.stock_quantity === 0
-                          ? "Out of Stock"
-                          : `Available: ${product.stock_quantity} units`}
-                      </span>
-                    </div>
-                  </CommandItem>
-                ))}
+                .map((product) => {
+                  const isUnavailable = !product.is_active;
+                  const isOutOfStock = product.stock_quantity === 0;
+                  const isDisabled = isUnavailable || isOutOfStock;
+                  return (
+                    <CommandItem
+                      key={product.id}
+                      value={product.id}
+                      disabled={isDisabled}
+                      onSelect={() => {
+                        if (isDisabled) return;
+                        onSelect(product);
+                        setOpen(false);
+                        setSearchValue("");
+                      }}
+                      className={
+                        isDisabled
+                          ? "opacity-50 cursor-not-allowed"
+                          : "cursor-pointer"
+                      }
+                    >
+                      <div className="flex items-center justify-between w-full">
+                        <span className="font-medium">{product.name}</span>
+                        <span
+                          className={`text-xs ml-2 ${
+                            isUnavailable
+                              ? "text-muted-foreground"
+                              : isOutOfStock
+                              ? "text-destructive"
+                              : "text-muted-foreground"
+                          }`}
+                        >
+                          {isUnavailable
+                            ? "Unavailable"
+                            : isOutOfStock
+                            ? "Out of Stock"
+                            : `Available: ${product.stock_quantity} units`}
+                        </span>
+                      </div>
+                    </CommandItem>
+                  );
+                })}
             </CommandGroup>
           </CommandList>
         </Command>

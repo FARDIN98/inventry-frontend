@@ -16,6 +16,7 @@ const statusBadgeVariants = cva(
         active: "bg-success/15 text-success",
         low_stock: "bg-warning/15 text-warning",
         out_of_stock: "bg-destructive/15 text-destructive",
+        inactive: "bg-muted/50 text-muted-foreground line-through",
         // Order statuses
         pending: "bg-muted/30 text-muted-foreground",
         confirmed: "bg-primary/20 text-primary",
@@ -39,6 +40,7 @@ const statusLabels: Record<AllStatus, string> = {
   active: "Active",
   low_stock: "Low Stock",
   out_of_stock: "Out of Stock",
+  inactive: "Inactive",
   // Order statuses
   pending: "Pending",
   confirmed: "Confirmed",
