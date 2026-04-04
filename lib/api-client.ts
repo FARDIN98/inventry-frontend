@@ -1,4 +1,5 @@
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+// Use Next.js rewrites to proxy all API requests, bypassing cross-domain cookie issues
+const API_BASE_URL = '/api';
 
 interface ApiOptions extends Omit<RequestInit, 'body'> {
   body?: Record<string, unknown>;
